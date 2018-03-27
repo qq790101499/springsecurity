@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.platform.zxx.dao.RoleDao">
+
+    <select id="getRoles" parameterType="String" resultType="com.platform.zxx.entity.Role">
+        SELECT * FROM  ROLE
+    </select>
+
+    <insert id="insertRoles"  parameterType="com.platform.zxx.entity.Role">
+        INSERT INTO role (rolecode,rolename) VALUES ((b#{brolecode}),#{rolename})
+    </insert>
+
+    <update id="updateRoles"  parameterType="com.platform.zxx.entity.Role">
+        UPDATE role SET rolecode = #{rolecode},rolename=#{rolename}
+        WHERE roleid = #{roleid}
+    </update>
+
+    <delete id="deleteRoles"  parameterType="com.platform.zxx.entity.Role">
+        DELETE FROM role
+        WHERE roleid = #{roleid}
+    </delete>
+
+    <select id="getResources"  resultType="com.platform.zxx.entity.ResourcePlusRole">
+        SELECT * FROM  ResourcePlusRole
+    </select>
+
+    <insert id="insertResources"  parameterType="com.platform.zxx.entity.ResourcePlusRole">
+        INSERT INTO ResourcePlusRole
+        (url,method,needrole,`describe`)
+        VALUES (#{url},#{method},#{needrole},#{describe})
+    </insert>
+
+    <update id="updateResources" parameterType="com.platform.zxx.entity.ResourcePlusRole">
+        UPDATE ResourcePlusRole
+        SET url=#{url},method=#{method},needrole=#{needrole},`describe`=#{describe}
+        WHERE resourceid = #{resourceid}
+    </update>
+
+    <delete id="deleteResources" parameterType="com.platform.zxx.entity.ResourcePlusRole">
+        DELETE FROM ResourcePlusRole
+        WHERE resourceid = #{resourceid}
+    </delete>
+
+</mapper>

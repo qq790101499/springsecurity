@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html;charset=UTF-8"/>
+    <title>登录页面</title>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h2>使用账号密码登录</h2>
+        <form id="login" action="/login" method="post">
+            <input type="text" class="form-control" name="username" value="" placeholder="账号" />
+            <input type="password" class="form-control" name="password" placeholder="密码" />
+            <input type="submit" value="登录"/>
+            <a href="/registHTML">点此注册</a>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

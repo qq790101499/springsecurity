@@ -1,0 +1,18 @@
+2018-03-16 14:56:48 9999 [localhost-startStop-1] ERROR o.s.b.w.e.tomcat.TomcatStarter - Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'sessionRepositoryFilterRegistration' defined in class path resource [org/springframework/boot/autoconfigure/session/SessionRepositoryFilterConfiguration.class]: Unsatisfied dependency expressed through method 'sessionRepositoryFilterRegistration' parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2018-03-16 14:56:49 10470 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of method sessionRepositoryFilterRegistration in org.springframework.boot.autoconfigure.session.SessionRepositoryFilterConfiguration required a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' that could not be found.
+	- Bean method 'redisConnectionFactory' not loaded because @ConditionalOnClass did not find required classes 'org.apache.commons.pool2.impl.GenericObjectPool', 'redis.clients.jedis.Jedis'
+	- Bean method 'redisConnectionFactory' not loaded because @ConditionalOnClass did not find required class 'io.lettuce.core.RedisClient'
+
+
+Action:
+
+Consider revisiting the conditions above or defining a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' in your configuration.
+
